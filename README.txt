@@ -1,13 +1,8 @@
-CSEE4119-PA2
-============
-
-Programming Assignment 2 of CSEE4119 Computer Networks in Columbia University Computer Science
-
 Simple Server-Client Chatting Program
 sy2515, Shuo Yang
 
 a. A brief description of your code:
-This is a multi-threads based chatting program, consisting both the server part and the client part. The server program will run first followed by multiple instances of the client program (each instance supports one client). There are new user registration (old user de-registration, or cancellation in other words), user login and authentication (including blocking after several consecutive login failures, new login user notification, logout user notification), user commands (including “whoelse”, “wholasthr”, “broadcast”, “message”, “block”, “unblock”, file transferring related and “logout”), login user TIME\_OUT check, maximum supported users online, server log generation, server commands (including system parameters check and modification, user related information check, and manually stopping server), server database backup when it stops, and so on. All these features and how to use them will be talked about in details in the following several parts.
+This is a multi-threads based chatting program, consisting both the server part and the client part. The server program will run first followed by multiple instances of the client program (each instance supports one client). There are new user registration (old user de-registration, or cancellation in other words), user login and authentication (including blocking after several consecutive login failures, new login user notification, logout user notification), user commands (including “whoelse”, “wholasthr”, “broadcast”, “message”, “block”, “unblock”, file transferring related and “logout”), login user TIME_OUT check, maximum supported users online, server log generation, server commands (including system parameters check and modification, user related information check, and manually stopping server), server database backup when it stops, and so on. All these features and how to use them will be talked about in details in the following several parts.
 
 The client program has two working threads when after the user has logged in. At the very beginning, it receives the parameters from the python execution command line input (the server’s IP and port number), and creates a new socket, and uses it to connect the remote server. At this time, if the server has reached its online users limitation, this new connection will be dropped right now and the person now can’t login. If the server has not reached its online users limitation, then this user enters the name-password check status, which is also in previous main thread, and in which the person can use existing user-name with password to login, or this person can register new user (de-register old user). After the authentication, this person just logs in with his user-name and password, and then two separate working threads are generated, in which one is responsible for taking the input from the command line and send it to the server, and another is responsible for listening for the server on this connection and deal with different situations based on the pre-defined protocols. The previous main thread is just waiting there for the client program termination signal, which is passed from the listening thread. By this design model, we can quit the client program when we want, and we can achieve the communication for this login user with the server.
 
@@ -42,7 +37,7 @@ Columbia on 160.39.222.87:55824
 
 blocked users
 [admin]The present blocked users are:
-Google on 160.39.222.87 at 2014-03-04\_21:25:13
+Google on 160.39.222.87 at 2014-03-04_21:25:13
 
 all users
 [admin]The present all users are:
@@ -60,16 +55,16 @@ MaxCon
 [admin]The present permittable maximum user connection # is:
 5
 
-BLOCK\_TIME 
-[admin]The present BLOCK\_TIME is:
+BLOCK_TIME 
+[admin]The present BLOCK_TIME is:
 60.0 seconds
 
-LAST\_HOUR
-[admin]The present LAST\_HOUR is:
+LAST_HOUR
+[admin]The present LAST_HOUR is:
 100.0 seconds
 
-TIME\_OUT
-[admin]The present TIME\_OUT is:
+TIME_OUT
+[admin]The present TIME_OUT is:
 600.0 seconds
 
 change MaxCon
@@ -78,19 +73,19 @@ change MaxCon
 The MaxCon has been changed to 4
 
 change BLOCK_TIME
-[admin]Please enter your new BLOCK\_TIME parameter: (in float format and it will represent how many seconds)
+[admin]Please enter your new BLOCK_TIME parameter: (in float format and it will represent how many seconds)
 50
-The BLOCK\_TIME has been changed to 50.0
+The BLOCK_TIME has been changed to 50.0
 
-change LAST\_HOUR
-[admin]Please enter your new LAST\_HOUR parameter: (in float format and it will represent how many seconds)
+change LAST_HOUR
+[admin]Please enter your new LAST_HOUR parameter: (in float format and it will represent how many seconds)
 120
-The LAST\_HOUR has been changed to 120.0
+The LAST_HOUR has been changed to 120.0
 
-change TIME\_OUT
-[admin]Please enter your new TIME\_OUT parameter: (in float format and it will represent how many seconds)
+change TIME_OUT
+[admin]Please enter your new TIME_OUT parameter: (in float format and it will represent how many seconds)
 500
-The TIME\_OUT has been changed to 500.0
+The TIME_OUT has been changed to 500.0
 ####################################################################
 special notes:
 1. MaxCon: the allowed maximum number of online users, for workload issue of the server; this is the number of the actual login users, but not the opening client programs, which means that if MaxCon is 5, you can still open 10 client programs but none of them has successfully logged in to the server; but if the online users number is already 5, you cannot try to open a client program, and you will be declined; but if you have already opened a client program, and the online users number has just reached 5, then you can still try to enter your name/pwd, but once your information is verified, you will then be notified that “the limitation has been reached and you will logout automatically”; I know this may be some kind of curious; this results from that a person on the client program can actually not have successfully logged in to the server;
@@ -385,4 +380,3 @@ for the server:
 	after the user has logged in:
 		“Ctrl+C” can be used and the client will receive this information and quit gracefully
 		closing the terminal window will not be used by now, and the online user will run crazy; it’s kind of trivial and as it is not mentioned in the discussion board, I did not solve it; but there is definitely a way to deal with it if time is enough
-
