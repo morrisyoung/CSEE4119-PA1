@@ -209,15 +209,15 @@ wastingtime
 
 Welcome to the Chatting room user "facebook"! Now you have successfully logged in!
 
-facebook>>
+facebook>
 
 System(broadcast): "Columbia" has just logged in.
 
-facebook>>
+facebook>
 
 System(broadcast): "Google" has just logged in.
 
-facebook>>
+facebook>
 
 wholes
 
@@ -227,7 +227,7 @@ Columbia
 
 Google
 
-facebook>>
+facebook>
 
 wholasthr
 
@@ -237,41 +237,41 @@ Columbia
 
 Google
 
-facebook>>
+facebook>
 
 broadcast It's me facebook ~
 
 facebook(broadcast): It's me facebook ~
 
-facebook>>
+facebook>
 
 message Columbia I want to try private message~
 
-facebook>>
+facebook>
 
 message csee4119 I want to try off-line message~
 
 The user "csee4119" is unfortunately not online. But the server has stored your message.
 
-facebook>>
+facebook>
 
 block facebook
 
 Error! You cannot block yourself! Please try again!..
 
-facebook>>
+facebook>
 
 block Columbia
 
 You have successfully blocked Columbia from sending you messages.
 
-facebook>>
+facebook>
 
 unblock Columbia
 
 You have successfully unblocked Columbia
 
-facebook>>
+facebook>
 
 logout
 
@@ -369,7 +369,7 @@ lotsofexams
 
 Welcome to the Chatting room user "csee4119"! Now you have successfully logged in!
 
-csee4119>>
+csee4119>
 
 The off-line messages during you are not in:
 
@@ -379,7 +379,7 @@ facebook(private): I want to try off-line message~
 
 Now you can input commands as above instructed:
 
-csee4119>>
+csee4119>
 
 Time out for 60.0 seconds.
 
@@ -411,7 +411,7 @@ special notes:
 
 e. Description of an additional functionalities and how they should be executed/tested:
 
-1. server log:
+e-1. server log:
 
 After the server stops, all the running status and user login/logout/commands records will be saved as a log, named by the stopping time of the server like:
 
@@ -421,7 +421,7 @@ log\_2014-03-04\_21:32:30.log
 You can check the system information during the running time of the server through this log.
 
 
-2. all the system parameters and user information will be saved if the server is stopping:
+e-2. all the system parameters and user information will be saved if the server is stopping:
 
 =============================================================================
 
@@ -468,7 +468,7 @@ list\_block.txt: all the blocked users and their IP and blocking time informatio
 
 They all have their formats and the server program can read them from start, and save them at the end.
 
-3. new user registration and old user de-registration:
+e-3. new user registration and old user de-registration:
 
 just type “register” or “de-register” after you just enter the client program:
 
@@ -518,7 +518,7 @@ Please enter your password:
 
 Welcome to the Chatting room user "shuo"! Now you have successfully logged in!
 
-shuo>>
+shuo>
 
 quit
 
@@ -562,17 +562,17 @@ Please enter your username: (or you can "quit" or "resigter" or "de-register" by
 
 
 
-4. New login user notification and logout user notification:
+e-4. New login user notification and logout user notification:
 
 When a user has just logged in, a notification will be sent to all the online users (this message is not off-line, because it’s not useful). Also, if a user has just logged out from the server, an notification will also be sent to all the present online users. You will see this during you running the program. I will not show it here.
 
 
-5. server stop:
+e-5. server stop:
 
 There are two ways: “stop” command in the server console, or “Ctrl+C”. In both situations the online users will be notified and log out automatically.
 
 
-6. data concurrency:
+e-6. data concurrency:
 
 I have carefully considered the data concurrency program, and tentatively have a try at two places.
 
@@ -581,7 +581,7 @@ a. The number of the total present online users. This is a global variable in se
 b. File transfer VS normal message sending. As I don’t created another separate thread for file transferring, when do this kind of job, I should stop normal message sending to the targeting user. Otherwise the normal message will be also written to the received file. I set a lock for each user, I will give and release the lock before and after these operations. Then problem is solved.
 
 
-7. file transfer:
+e-7. file transfer:
 
 I have stored a “test\_file.txt” in the folder for testing convenience.
 
@@ -605,11 +605,11 @@ wastingtime
 
 Welcome to the Chatting room user "facebook"! Now you have successfully logged in!
 
-facebook>>
+facebook>
 
 System(broadcast): "Columbia" has just logged in.
 
-facebook>>
+facebook>
 
 file Columbia test\_file.txt
 
@@ -619,7 +619,7 @@ Transferring process succeeds.
 
 file "test\_file.txt" has been successfully received by the server.
 
-facebook>>
+facebook>
 
 
 
@@ -641,17 +641,17 @@ Please enter your password:
 
 Welcome to the Chatting room user "Columbia"! Now you have successfully logged in!
 
-Columbia>>
+Columbia>
 
 facebook(file\_transfer): test\_file.txt
 
-Columbia>>
+Columbia>
 
 fileget
 
 File "test\_file.txt" from "facebook".
 
-Columbia>>
+Columbia>
 
 fileget facebook test\_file.txt
 
@@ -661,7 +661,7 @@ Please wait until the "receive file success" notification has raised!...
 
 receive file success!
 
-Columbia>>
+Columbia>
 
 =============================================================================
 
@@ -673,14 +673,14 @@ special notes:
 
 3. commands:
 
-->file <receiver> <filename>: transfer the file <filename> in present working directory to the <receiver>
+>file <receiver> <filename>: transfer the file <filename> in present working directory to the <receiver>
 
-->fileget <source> <filename>: get the file from sender <source> temporarily stored in the server; if just "fileget" is applied, then the system will show all the files for you stored in the server
+>fileget <source> <filename>: get the file from sender <source> temporarily stored in the server; if just "fileget" is applied, then the system will show all the files for you stored in the server
 
-->filedecline <source> <filename>: delete the remote file <filename> on the server from user <source>
+>filedecline <source> <filename>: delete the remote file <filename> on the server from user <source>
 
 
-8. all kinds of brute quits:
+e-8. all kinds of brute quits:
 
 for the client:
 
