@@ -5,6 +5,8 @@ Programming Assignment 2 of CSEE4119 Computer Networks in Columbia University Co
 
 Simple Server-Client Chatting Program
 
+Assignment Description: http://www.columbia.edu/~sy2515/2014CSEE4119-ProgrammingAssignment1.pdf
+
 sy2515, Shuo Yang
 
 
