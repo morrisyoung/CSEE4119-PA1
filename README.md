@@ -9,6 +9,7 @@ sy2515, Shuo Yang
 
 
 
+
 a. A brief description of your code:
 
 This is a multi-threads based chatting program, consisting both the server part and the client part. The server program will run first followed by multiple instances of the client program (each instance supports one client). There are new user registration (old user de-registration, or cancellation in other words), user login and authentication (including blocking after several consecutive login failures, new login user notification, logout user notification), user commands (including “whoelse”, “wholasthr”, “broadcast”, “message”, “block”, “unblock”, file transferring related and “logout”), login user TIME\_OUT check, maximum supported users online, server log generation, server commands (including system parameters check and modification, user related information check, and manually stopping server), server database backup when it stops, and so on. All these features and how to use them will be talked about in details in the following several parts.
@@ -19,6 +20,7 @@ The server also has two separate threads for each login user. From the very begi
 
 
 
+
 b. Details on development environment:
 
 system: Mac OS X 10.9.1
@@ -26,6 +28,7 @@ system: Mac OS X 10.9.1
 language: Python 2.7.3
 
 IDE: PyCharm
+
 
 
 
@@ -42,11 +45,12 @@ After that, server program is just running and listening for connections, and yo
 
 
 
+
 d. Sample commands to invoke your code:
 
 server:
 
-####################################################################
+=============================================================================
 
 sy2515@warsaw:~/PA1$ python Server.py 1231
 
@@ -157,7 +161,7 @@ change TIME\_OUT
 
 The TIME\_OUT has been changed to 500.0
 
-####################################################################
+=============================================================================
 
 special notes:
 
@@ -185,7 +189,7 @@ you should keep the MaxCon as Int, and the left three as Float when you enter th
 
 client:
 
-####################################################################
+=============================================================================
 
 sy2515@warsaw:~/PA1$ python Client.py 128.59.15.36 1231
 
@@ -382,7 +386,7 @@ Time out for 60.0 seconds.
 shuoyang@dyn-160-39-222-87:~/CN/PA1 $ 
 
 
-####################################################################
+=============================================================================
 
 special notes:
 
@@ -403,6 +407,8 @@ special notes:
 8. you can’t login an already online user;
 
 
+
+
 e. Description of an additional functionalities and how they should be executed/tested:
 
 1. server log:
@@ -417,7 +423,7 @@ You can check the system information during the running time of the server throu
 
 2. all the system parameters and user information will be saved if the server is stopping:
 
-####################################################################
+=============================================================================
 
 ……
 
@@ -443,7 +449,7 @@ The server has stoped! Bye!
 
 sy2515@warsaw:~/PA1$ 
 
-####################################################################
+=============================================================================
 
 and they are saved as:
 
@@ -466,7 +472,7 @@ They all have their formats and the server program can read them from start, and
 
 just type “register” or “de-register” after you just enter the client program:
 
-####################################################################
+=============================================================================
 
 sy2515@warsaw:~/PA1$ python Client.py 128.59.15.36 1231
 
@@ -552,7 +558,7 @@ Please enter your username: (or you can "quit" or "resigter" or "de-register" by
 
 >>
 
-####################################################################
+=============================================================================
 
 
 
@@ -579,7 +585,7 @@ b. File transfer VS normal message sending. As I don’t created another separat
 
 I have stored a “test\_file.txt” in the folder for testing convenience.
 
-####################################################################
+=============================================================================
 
 sy2515@warsaw:~/PA1$ python Client.py 128.59.15.36 1231
 
@@ -657,7 +663,7 @@ receive file success!
 
 Columbia>>
 
-####################################################################
+=============================================================================
 
 special notes:
 
